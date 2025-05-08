@@ -1,0 +1,85 @@
+{
+  "display_enable": false,
+  "#display_enable": "display线程启用使能",
+
+  "dump_enable": true,
+  "#dump_enable": "dump线程启用使能",
+
+  "communicator_serial_port": "/dev/ttyUSB0",
+  "#communicator_comments": {
+    "#communicator_serial_port": "串口设备名称"
+  },
+
+  "pt_src": [
+    [131, 103],
+    [189, 103],
+    [118, 153],
+    [202, 153]
+  ],
+
+  "pt_dst": [
+    [136, 125],
+    [184, 125],
+    [136, 165],
+    [184, 165]
+  ],
+
+  "data_init_yaw": 0.0,
+  "data_init_speed": 0.0,
+  "#data_comments": {
+    "#data_init_yaw": "初始车辆偏角（弧度值）",
+    "#data_init_speed": "初始车辆速度"
+  },
+
+  "camera_video_src": "/dev/video0",
+  "camera_video_width": 640,
+  "camera_video_height": 360,
+  "camera_resize_width": 320,
+  "camera_resize_height": 180,
+  "camera_alpha": 2.0,
+  "camera_beta": 0.0,
+  "camera_min_gray_enable": false,
+  "camera_correct_enable": false,
+  "camera_calibration_file": "../config/calibration.xml",
+  "#camera_comments": {
+    "#camera_video_src": "视频源路径",
+    "#camera_video_width": "视频图像宽度",
+    "#camera_video_height": "视频图像高度",
+    "#camera_alpha": "对比度增益",
+    "#camera_beta": "亮度增益",
+    "#camera_min_gray_enable": "最小值灰度方法启用使能",
+    "#camera_correct_enable": "图像去畸启用使能",
+    "#camera_calibration_file": "相机标定文件路径"
+  },
+
+  "motion_lane_len": 150,
+  "motion_min_lane_len": 10,
+  "motion_lane_sampling_interval": 1,
+  "motion_bias_x": 0,
+  "motion_bias_y": 30,
+  "motion_upper_limit": 0.5,
+  "motion_block_size": 7,
+  "motion_binary_bias": 1,
+  "motion_start_confidence": 1,
+  "motion_color_delta": 10,
+  "motion_bias_yaw_times": 4.5,
+
+  "motion_valid_corner_y": 80,
+  "motion_valid_corner_threshold": 70.0,
+  "motion_curve_threshold": 16.0,
+
+  "#motion_comments": {
+    "#motion_lane_len": "车道线数组最多存储的点数",
+    "#motion_bias_x": "搜索车道线的起始点x坐标偏移值(x为列)",
+    "#motion_bias_y": "搜索车道线的起始点y坐标偏移值(y为行)",
+    "#motion_upper_limit": "向上搜索车道线起点最多可搜索的长度(相对于图像高度的百分比)",
+    "#motion_block_size": "自适应阈值二值化计算时用到的正方形采样范围边长",
+    "#motion_binary_bias": "自适应阈值二值化计算时用到的经验误差值",
+    "#motion_start_confidence": "确定当前点为车道线起点的置信度要求(找到多少个满足要求的点后确定找到了车道线起点)",
+    "#motion_color_delta": "车道线相邻像素灰度差值阈值",
+    "motion_bias_yaw_times": "角度误差修正倍数",
+    "motion_valid_corner_y": "需进行角点判断的最小的y坐标",
+    "motion_valid_corner_threshold": "角点有效的最小角度",
+    "motion_curve_threshold": "车道线为曲线的角点阈值"
+  }
+}
