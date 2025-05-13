@@ -23,6 +23,10 @@
 #include <smartcar/bridge_detector.hpp>
 #include <smartcar/rescue_detector.hpp>
 
+#include <smartcar/restaurant_detector.hpp>
+#include <smartcar/charging_detector.hpp>
+#include <smartcar/temp_stop_detector.hpp>
+
 /**
  * @brief 智能车运动控制类
  *
@@ -118,6 +122,10 @@ class MotionController
     DangerDetector danger;  ///< 危险区检测部件
     BridgeDetector bridge;  ///< 坡道区检测部件
     RescueDetector rescue;  ///< 救援区检测部件
+
+    RestaurantDetector restaurant; ///< 餐饮区检测部件
+    ChargingDetector charging;     ///< 充电区检测部件
+    TempStopDetector temp_stop;    ///< 临时停车区检测部件
 
     // 车道巡线涉及变量
     int direction[4][2]{{0, -1}, {1, 0}, {0, 1}, {-1, 0}}; ///< 方向：上、右、下、左（迷宫巡线法中使用）

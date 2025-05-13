@@ -9,6 +9,10 @@ void MotionController::init(const Config &config)
     crossing.init();
     rescue.init();
 
+    restaurant.init();
+    charging.init();
+    temp_stop.init();
+
     // 从Config中读取参数
     try
     {
@@ -1132,10 +1136,13 @@ void MotionController::recognize(const std::vector<PredictResult>& ai_results)
     crosswalk.detect(ai_results, track_state);
     danger.detect(ai_results, lane_left, lane_right, track_state);
     bridge.detect(ai_results, track_state);
-    rescue.detect(ai_results, lane_left, lane_right, track_state);
-
+    // rescue.detect(ai_results, lane_left, lane_right, track_state);
     crossing.detect(lane_left, lane_right, track_state);
     //ring.detect(lane_left, lane_right, track_state);
+
+    restaurant.detect(ai_results, track_state);
+    charging.detect(ai_results, track_state);
+    temp_stop.detect(ai_results, track_state);
 }
 
 void MotionController::basicSteeringControl()
@@ -1160,14 +1167,14 @@ void MotionController::basicSteeringControl()
     // }
 
     // 结束状态下发送停车标志
-    if (track_state == TrackState::STOP || track_state == TrackState::RESCUE_STOP)
+    if (track_state == TrackState::STOP || track_state == TrackState::RESCUE_STOP || track_state == TrackState::RESTAURANT_STOPPED || track_state == TrackState::CHARGING_CHARGING || track_state == TrackState::TEMP_STOP_STOPPED)
     {
         // std::cout << "STOP!!!\n";
         stop_flag = true;
         return;
     }
 
-    if (track_state == TrackState::RESCUE_EXITING)
+    if (track_state == TrackState::RESCUE_EXITING || track_state == TrackState::CHARGING_REVERSING)
     {
         reverse_flag = true;
     }

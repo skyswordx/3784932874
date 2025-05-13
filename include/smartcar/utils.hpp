@@ -98,9 +98,13 @@ enum class TrackState
     RESCUE_EXITING, ///< 车辆退出救援区
 
     // 20 届相关
-    // 餐饮区 
-    RESTAURANT_READY, ///< 餐饮区准备阶段
-    RESTAURANT_TURN,  ///< 车辆转向进入餐饮区
+    // 餐饮区 (Restaurant Area)
+    RESTAURANT_APPROACHING,     ///< 接近餐饮区，检测到标志
+    RESTAURANT_ENTERING_TURN,   ///< 进入餐饮区转向阶段 (45度角)
+    RESTAURANT_ALIGNING,        ///< 在餐饮区内对准路径
+    RESTAURANT_STOPPED,         ///< 在餐饮区停车（取餐）
+    RESTAURANT_EXITING_TURN,    ///< 离开餐饮区转向阶段 (45度角)
+    RESTAURANT_COMPLETED,       ///< 完成离开餐饮区
     // 餐饮区是否需要细分多个状态呢
     /**
      * 餐饮区需求：
@@ -109,9 +113,14 @@ enum class TrackState
      * 3. 之后再斜45度驶出该区域
      */
 
-    // 充电区
-    CHARGING_READY, ///< 充电区准备阶段
-    CHARGING_TURN,  ///< 车辆转向进入充电区
+    // 充电区 (Charging Area)
+    CHARGING_ZONE_APPROACHING,  ///< 接近充电区，检测到标志或多个停车位
+    CHARGING_SPOT_SELECTION,    ///< 选择可用停车位
+    CHARGING_ENTERING_TURN,     ///< 转向进入选定停车位
+    CHARGING_PARKING,           ///< 在停车位内对准并停车
+    CHARGING_CHARGING,          ///< 在停车位内停止充电
+    CHARGING_REVERSING,         ///< 从停车位倒车出来
+    CHARGING_EXITING,           ///< 驶离充电区
     // 充电区是否需要细分多个状态呢
     /**
      * 充电区需求：
@@ -122,9 +131,11 @@ enum class TrackState
      *          并且有的车位是已经有蓝色的车模的，不能驶入
      */
 
-    // 临时停车区
-    TEMP_STOP_READY, ///< 临时停车区准备阶段
-    TEMP_STOP_TURN,  ///< 车辆转向进入临时停车区
+    // 临时停车区 (Temporary Stop Area)
+    TEMP_STOP_APPROACHING,      ///< 接近临时停车区，检测到标志或虚线
+    TEMP_STOP_ENTERING,         ///< 调整进入矩形停车区域
+    TEMP_STOP_STOPPED,          ///< 在区域内停车
+    TEMP_STOP_RESUMING          ///< 临时停车后恢复行驶
     // 临时停车区是否需要细分多个状态呢
     /**
      * 临时停车区需求：

@@ -136,7 +136,7 @@ void DangerDetector::detect(const std::vector<PredictResult>& ai_results, const 
             for (auto& item : ai_results)
             {
                 // 改动：把19届的bomb标志替换为 block 和 cone
-                if (item.label == "block" || item.label == "cone")
+                if (item.label == "block" || item.label == "cone" || item.label == "pedestrian")
                 {
                     // std::cout << "here\n";
                     enter_counter++;
@@ -168,7 +168,7 @@ void DangerDetector::detect(const std::vector<PredictResult>& ai_results, const 
 
             for (auto& item : ai_results)
             {
-                if ((item.label == "block" || item.label == "cone") && item.y > max_y)
+                if ((item.label == "block" || item.label == "cone" || item.label == "pedestrian") && item.y > max_y)
                 {
                     max_y = item.y;
                     if (fabs(item.x-left_avg_x) <= fabs(item.x-right_avg_x)) is_item_left = true;
@@ -236,7 +236,7 @@ void DangerDetector::detect(const std::vector<PredictResult>& ai_results, const 
 
             for (auto& item : ai_results)
             {
-                if ((item.label == "block" || item.label == "cone") && item.y > max_y)
+                if ((item.label == "block" || item.label == "cone" || item.label == "pedestrian") && item.y > max_y)
                 {
                     max_y = item.y;
                     if (fabs(item.x-left_avg_x) <= fabs(item.x-right_avg_x)) is_item_left = true;
@@ -304,7 +304,7 @@ void DangerDetector::detect(const std::vector<PredictResult>& ai_results, const 
 
             for (auto& item : ai_results)
             {
-                if ((item.label == "block" || item.label == "cone") && item.y > max_y)
+                if ((item.label == "block" || item.label == "cone" || item.label == "pedestrian") && item.y > max_y)
                 {
                     max_y = item.y;
                     if (fabs(item.x-left_avg_x) <= fabs(item.x-right_avg_x)) is_item_left = true;
