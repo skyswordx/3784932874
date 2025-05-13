@@ -135,7 +135,8 @@ void DangerDetector::detect(const std::vector<PredictResult>& ai_results, const 
         {
             for (auto& item : ai_results)
             {
-                if (item.label == "bomb")
+                // 改动：把19届的bomb标志替换为 block 和 cone
+                if (item.label == "block" || item.label == "cone")
                 {
                     // std::cout << "here\n";
                     enter_counter++;
