@@ -363,6 +363,6 @@ MigrationBackup/
 FodyWeavers.xsd
 
 build/
-res/
+# res/
 .vscode
 output.mp4
