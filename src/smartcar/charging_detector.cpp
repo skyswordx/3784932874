@@ -26,7 +26,7 @@ void ChargingDetector::init()
 ;
 }
 
-void ChargingDetector::detect(const std::vector<PredictResult>& ai_results,  const LaneLine& lane_left, const LaneLine& lane_right, TrackState& track_state)
+void ChargingDetector::detect(const std::vector<PredictResult>& ai_results, TrackState& track_state)
 {
     // Placeholder: actual logic would use AI to find "charging_station_sign",
     // "parking_spot_lines", "occupied_spot_indicator (blue_car_model)"

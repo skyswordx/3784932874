@@ -15,7 +15,7 @@
  {
    public:
      void init();
-     void detect(const std::vector<PredictResult>& ai_results, const LaneLine& lane_left, const LaneLine& lane_right, TrackState& track_state);
+     void detect(const std::vector<PredictResult>& ai_results, TrackState& track_state);
  
    private:
      int approaching_counter;
