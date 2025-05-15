@@ -67,7 +67,7 @@ void Communicator::send_bytes(MotionData &data)
 #ifdef __linux__
     serial.write(sent_data, sizeof(sent_data));
 #endif
-    std::string text = "[Serial] " + std::to_string(packet.yaw) + '\n';
+    std::string text = "[Serial] yaw: " + std::to_string(packet.yaw) + "speed: " + std::to_string(packet.speed) + '\n';
     std::cout << text;
     
 }

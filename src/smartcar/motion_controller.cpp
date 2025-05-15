@@ -95,6 +95,8 @@ void MotionController::process(const cv::Mat &gray_image, const std::vector<Pred
     // 写入向下位机发送的数据
     writeMotionData(data);
 
+    printTrackState();
+
 }
 
 cv::Mat MotionController::display(const cv::Mat &image)
